@@ -56,7 +56,7 @@ jun : -----
 ## GameController
 - [ ] 게임 전체 로직
 ## RandomNumberGenerator
-- [ ] 무작위 값 생성
+- [x] 무작위 값 생성
 ## Car
 - [ ] 자동차 이름 검증(5글자 이하)
 - [ ] 무작위 값에 의한 동작
