@@ -75,8 +75,8 @@ jun : -----
 ### FinalResult
 - [ ] toString 재구현
 ## InputReader
-- [ ] 자동차 이름 입력
-- [ ] 시도 횟수 입력
+- [x] 자동차 이름 입력
+- [x] 시도 횟수 입력
 ## OutputWriter
 - [ ] 차수별 실행 결과 출력
 - [ ] 우승자 안내 문구 출력
