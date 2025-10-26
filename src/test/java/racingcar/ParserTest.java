@@ -113,6 +113,9 @@ class ParserTest {
         assertThatThrownBy(() -> Parser.validateName(name2))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.INVALID_CAR_NAME.getMessage());
+        assertThatThrownBy(() -> Parser.validateName(name3))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ErrorMessage.INVALID_CAR_NAME.getMessage());
     }
 
 }
