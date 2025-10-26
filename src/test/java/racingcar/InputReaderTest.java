@@ -40,13 +40,13 @@ class InputReaderTest {
     }
 
     void setInput(String input) {
-        System.setIn(new ByteArrayInputStream((input + "\n").getBytes()));
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
     }
 
     @Test
     void 자동차_이름_입력시_메시지_호출해야한다() {
         // given
-        setInput(" ");
+        setInput("\n");
 
         // when
         InputReader.readCarNames();
@@ -58,7 +58,7 @@ class InputReaderTest {
     @Test
     void 시도_회수_입력시_메시지_호출해야한다() {
         // given
-        setInput(" ");
+        setInput("\n");
 
         // when
         InputReader.readAttemptCount();
@@ -71,7 +71,7 @@ class InputReaderTest {
     @Test
     void 입력_검증() {
         // given
-        setInput("A,B,C");
+        setInput("A,B,C\n");
 
         // when
         String input = InputReader.readCarNames();

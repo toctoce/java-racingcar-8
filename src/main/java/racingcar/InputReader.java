@@ -11,15 +11,12 @@ public final class InputReader {
 
     public static String readCarNames() {
         System.out.print(GET_NAME_MESSAGE);
-        return read();
+        return Console.readLine();
     }
 
     public static String readAttemptCount() {
         System.out.print(GET_ATTEMPT_COUNT_MESSAGE);
-        return read();
-    }
-
-    private static String read() {
         return Console.readLine();
     }
+
 }
