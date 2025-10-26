@@ -1,6 +1,6 @@
 package racingcar;
 
-public class Position implements Comparable<Position> {
+public class Position implements Comparable<Position>, Cloneable {
 
     private int coordinate;
 
@@ -8,8 +8,12 @@ public class Position implements Comparable<Position> {
         this.coordinate = coordinate;
     }
 
-    private void change(int movement) {
+    public void change(int movement) {
         coordinate += movement;
+    }
+
+    public int getCoordinate() {
+        return coordinate;
     }
 
     @Override
@@ -17,7 +21,14 @@ public class Position implements Comparable<Position> {
         return Integer.compare(this.coordinate, o.coordinate);
     }
 
-    public int getCoordinate() {
-        return coordinate;
+    @Override
+    public Position clone() {
+        try {
+            Position clone = (Position) super.clone();
+            clone.coordinate = this.coordinate;
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }
