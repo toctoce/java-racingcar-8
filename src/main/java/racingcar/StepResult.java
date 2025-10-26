@@ -13,7 +13,7 @@ public class StepResult extends Result {
     public String toString() {
         return cars.stream()
                 .map(car -> formatResult(car))
-                .collect(Collectors.joining(", "));
+                .collect(Collectors.joining("\n"));
     }
 
     private String formatResult(Car car) {
