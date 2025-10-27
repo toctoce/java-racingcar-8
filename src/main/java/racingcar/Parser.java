@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -18,11 +19,10 @@ public class Parser {
             throw new IllegalArgumentException(ErrorMessage.INVALID_FORMAT.getMessage());
         }
 
-        for  (String name : nameArray) {
-            validateName(name);
-        }
+        List<String> nameList = List.of(nameArray);
+        nameList.forEach(name -> validateName(name));
 
-        return List.of(nameArray);
+        return nameList;
     }
 
     public static void validateName(String name) {
