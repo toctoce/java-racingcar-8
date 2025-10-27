@@ -18,13 +18,16 @@ class InputReaderTest {
     private InputStream standardIn;
     private OutputStream captor;
 
+    private InputReader inputReader;
+
     @BeforeEach
-    protected final void init() {
+    protected final void setup() {
         standardOut = System.out;
         standardIn = System.in;
 
         captor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(captor));
+        inputReader = new InputReader();
     }
 
     @AfterEach
@@ -49,7 +52,7 @@ class InputReaderTest {
         setInput("\n");
 
         // when
-        InputReader.readCarNames();
+        inputReader.readCarNames();
 
         // then
         assertThat(output()).contains("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -61,7 +64,7 @@ class InputReaderTest {
         setInput("\n");
 
         // when
-        InputReader.readAttemptCount();
+        inputReader.readAttemptCount();
 
         // then
         assertThat(output()).contains("시도할 횟수는 몇 회인가요?");
@@ -74,7 +77,7 @@ class InputReaderTest {
         setInput("A,B,C\n");
 
         // when
-        String input = InputReader.readCarNames();
+        String input = inputReader.readCarNames();
 
         // then
         assertThat(input).isEqualTo("A,B,C");
