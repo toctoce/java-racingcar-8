@@ -58,7 +58,6 @@ jun : -----
 ## RandomNumberGenerator
 - [x] 무작위 값 생성
 ## Car
-- [ ] 자동차 이름 검증(5글자 이하)
 - [x] 무작위 값에 의한 동작
   - [x] 전진
   - [x] 정지
@@ -83,6 +82,7 @@ jun : -----
 ## Parser
 - [x] 자동차 이름 입력을 이름 리스트로 변환
 - [x] 시도 횟수 입력을 정수로 변환
+- [x] 자동차 이름 검증(5글자 이하)
 
 # 클래스 다이어그램
 ![Class Diagram.drawio.png](image/Class_Diagram.drawio.png)
