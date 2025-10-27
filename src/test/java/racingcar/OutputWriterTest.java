@@ -17,15 +17,19 @@ class OutputWriterTest {
     private PrintStream standardOut;
     private OutputStream captor;
 
+    private OutputWriter outputWriter;
+
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
     @BeforeEach
-    protected final void init() {
+    protected final void setup() {
         standardOut = System.out;
 
         captor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(captor));
+
+        outputWriter = new OutputWriter();
     }
 
     @AfterEach
@@ -56,7 +60,7 @@ class OutputWriterTest {
                 stepResults.add(new StepResult(cars));
 
                 // when
-                OutputWriter.writeStepResult(stepResults);
+                outputWriter.writeStepResult(stepResults);
 
                 // then
                 assertThat(output()).contains("""
@@ -87,7 +91,7 @@ class OutputWriterTest {
                     FinalResult finalResult = new FinalResult(cars);
 
                     // when
-                    OutputWriter.writeFinalResult(finalResult);
+                    outputWriter.writeFinalResult(finalResult);
 
                     // then
                     assertThat(output()).contains("""
@@ -99,25 +103,24 @@ class OutputWriterTest {
     @Test
     void 우승자_두_명_최종_결과_출력() {
         assertRandomNumberInRangeTest(
-                () -> {
+            () -> {
+                // given
+                Car car1 = new Car("A");
+                Car car2 = new Car("B");
+                List<Car> cars = List.of(car1, car2);
 
-                    // given
-                    Car car1 = new Car("A");
-                    Car car2 = new Car("B");
-                    List<Car> cars = List.of(car1, car2);
+                car1.operate();
+                car2.operate();
+                FinalResult finalResult = new FinalResult(cars);
 
-                    car1.operate();
-                    car2.operate();
-                    FinalResult finalResult = new FinalResult(cars);
+                // when
+                outputWriter.writeFinalResult(finalResult);
 
-                    // when
-                    OutputWriter.writeFinalResult(finalResult);
-
-                    // then
-                    assertThat(output()).contains("""
+                // then
+                assertThat(output()).contains("""
                         최종 우승자 : A, B""");
-                },
-                STOP, STOP
+            },
+            STOP, STOP
         );
     }
 }
