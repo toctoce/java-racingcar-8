@@ -1,6 +1,5 @@
 package racingcar;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,7 +17,7 @@ public class FinalResult extends Result {
 
         if (cars.isEmpty()) {
             headCars = List.of();
-            return ;
+            return;
         }
 
         Car headCar = Collections.max(cars);

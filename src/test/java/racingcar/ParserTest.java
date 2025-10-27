@@ -59,6 +59,7 @@ class ParserTest {
         assertThat(i2).isEqualTo(10000);
         assertThat(i3).isEqualTo(2147483647);
     }
+
     @Test
     void 음수와_0은_입력될_수_없다() {
         // given
@@ -105,7 +106,6 @@ class ParserTest {
         String name1 = "aaaaaa";
         String name2 = "aaa_";
         String name3 = "박";
-
 
         // when, then
         assertThatThrownBy(() -> Parser.validateName(name1))

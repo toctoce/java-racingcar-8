@@ -2,18 +2,15 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class CarManagerTest {
 
-    private final CarManager carManager = new CarManager();
-
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
+    private final CarManager carManager = new CarManager();
 
     @Test
     void carManager_정상동작_검증() {
@@ -43,7 +40,7 @@ class CarManagerTest {
                     assertThat(finalResult.toString()).isEqualTo("""
                             a""");
                 },
-            MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, STOP
+                MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, STOP
         );
     }
 }
