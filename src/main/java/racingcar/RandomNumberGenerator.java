@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public final class RandomNumberGenerator {
     private static final int RANGE_START = 0;
-    private static final int RANGE_END = 0;
+    private static final int RANGE_END = 9;
 
     // 객체 생성 방지
     private RandomNumberGenerator() {}
