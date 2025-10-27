@@ -7,7 +7,7 @@ import java.util.regex.PatternSyntaxException;
 
 public class Parser {
 
-    private static final Pattern NAME_PATTERN = Pattern.compile("[a-z]{1,5}");
+    private static final Pattern NAME_PATTERN = Pattern.compile("[a-zA-Z]{1,5}");
 
     public static List<String> carNamesInputToNameList(String input) {
         String[] nameArray;

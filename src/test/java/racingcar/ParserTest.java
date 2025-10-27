@@ -61,7 +61,6 @@ class ParserTest {
     }
     @Test
     void 음수와_0은_입력될_수_없다() {
-
         // given
         String input1 = "-1";
         String input2 = "0";
@@ -92,10 +91,12 @@ class ParserTest {
         // given
         String name1 = "a";
         String name2 = "aaaaa";
+        String name3 = "AAAAA";
 
         // when, then
         Parser.validateName(name1);
         Parser.validateName(name2);
+        Parser.validateName(name3);
     }
 
     @Test
